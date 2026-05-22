@@ -8,6 +8,11 @@
  */
 
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
+
+vi.mock('$env/dynamic/public', () => ({
+  env: { PUBLIC_API_URL: 'http://localhost:3000' }
+}));
+
 import { api, ApiError } from './api.service';
 import { authToken } from './auth.store.svelte';
 
